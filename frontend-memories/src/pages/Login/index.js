@@ -17,7 +17,7 @@ const Login = () => {
                 <Gap height={18}/>
                 <Input label="Password" placeholder="Massukan Password..." type="password"/>
                 <Gap height={30}/>
-                <Button title="Login"  onClick={() => history.push('./')}/>
+                <Button title="Login" onClick={() => history.push('./')}/>
                 <Gap height={40}/>
                 <Link title="Belum punya akun? Daftar" onClick={() => history.push('./register')}/>
             </div>
