@@ -1,8 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const app = express();
-const contentRouter = require('./routes/contents')
-const authRouter = require('./routes/auth')
+const contentRouter = require('./routes/contents');
+const authRouter = require('./routes/auth');
 
 app.use(bodyParser.json());
 
@@ -15,4 +16,9 @@ app.use((req, res, next) => {
 });
 app.use('/v1/contents', contentRouter);
 app.use('/v1/auth', authRouter);
-app.listen(4000);
+
+mongoose.connect('mongodb+srv://catur:<lDA1cBjfKrOMLEzd>@clustermernblog.7eara.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+.then(() => {
+    app.listen(4000, () => console.log('Connection Successfully'));
+})
+.catch(err => console.log(err));
