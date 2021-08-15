@@ -16,6 +16,12 @@ app.use((req, res, next) => {
 });
 app.use('/v1/contents', contentRouter);
 app.use('/v1/auth', authRouter);
+app.use((error, req, res, next) => {
+    const status = error.errorStatus || 500;
+    const errorMessage = error.message;
+    const data = error.data;
+    res.status(status).json({message: errorMessage, data: data});
+});
 
 mongoose.connect('mongodb+srv://catur:<lDA1cBjfKrOMLEzd>@clustermernblog.7eara.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 .then(() => {
