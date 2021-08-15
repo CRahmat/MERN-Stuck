@@ -1,0 +1,176 @@
+Standar API
+
+{root:api}/{version}/{grouping}/{endpoint}
+mern-api.memories.com
+EXAMPLE:
+mern-api.memories.com/v1/auth/login
+
+=====================================================================================================
+
+Standar Status response
+200 - OK                    --> Call API Success
+201 - CREATED               --> Post Success
+400 - BAD REQUEST           --> Error on Client Side
+401 - UNAUTHORIZED          --> User not authorized to the request
+403 - FORBIDDEN             --> User not allowed to access
+404 - NOT FOUND             --> Request EndPoint Not Found
+500 - INTERNAL SERVER ERROR --> Error on Server Side
+502 - BAD GATEWAY           --> Invalid Response from Another Request
+
+=====================================================================================================
+
+Group = Authentiction
+[1] - Register
+{root:api}/{version}/auth/register
+req:
+{
+    "fullName": "Catur Rahmat",
+    "email": "catur@gmail.com",
+    "password": "123456"
+}
+
+res:
+{
+    message: "Register Successfully",
+    data: {
+    "id": 1,
+    "fullName": "Catur Rahmat",
+    "email": "catur@gmail.com",
+    "password": "123456"
+    }
+}
+err-response:
+400 -> Input tidak Valid
+
+------------------------------------------------------------------------------------------------------
+
+[2] - Login
+{root:api}/{version}/auth/login
+req:
+{
+    "email": "catur@gmail.com",
+    "password": "123456"
+}
+
+res:
+{
+    message: "Login Successfully",
+    data: {
+    "email": "catur@gmail.com",
+    "password": "123456"
+    }
+}
+err-response:
+400 -> Input tidak Valid
+
+=====================================================================================================
+
+Group = CONTENTS
+
+[1] - Create Contents
+{root:api}/{version}/contents/create
+req:
+{
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+}
+
+res:
+{
+    message: "Created Successfully",
+    data: {
+    "id": 1
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+    }
+}
+err-response:
+400 -> Input tidak Valid
+
+------------------------------------------------------------------------------------------------------
+
+[2] - Details Contents
+{root:api}/{version}/contents/details/{id}
+req:
+{
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+}
+
+res:
+{
+    message: "Details Content",
+    data: {
+    "id": 1
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+    }
+}
+err-response:
+400 -> Input tidak Valid
+
+------------------------------------------------------------------------------------------------------
+
+[3] - Update Contents
+{root:api}/{version}/contents/update/{id}
+req:
+{
+    "id": 1
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+}
+
+res:
+{
+    message: "Update Successfully",
+    data: {
+    "id": 1
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+    }
+}
+err-response:
+400 -> Input tidak Valid
+
+------------------------------------------------------------------------------------------------------
+
+[4] - Delete Contents
+{root:api}/{version}/contents/delete/{id}
+req:
+{
+    "id": 1
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+}
+
+res:
+{
+    message: "Delete Successfully",
+    data: {
+    "id": 1
+    "title": "Post Title",
+    "image": "url imge",
+    "author": "Catur Rahmat",
+    "Content": "Content Details"
+    }
+}
+err-response:
+400 -> Input tidak Valid
+
+------------------------------------------------------------------------------------------------------
+
+
