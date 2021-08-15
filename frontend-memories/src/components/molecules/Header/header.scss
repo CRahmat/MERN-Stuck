@@ -1,0 +1,31 @@
+.header{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+    .brand-logo{
+        height: 50px;
+        margin: 0px;
+    }
+    .fitur{
+        font-size: 16px;
+        color: black;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .fitur ul{
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    .fitur ul li {
+        float: left;
+        padding: 0px 20px;
+    }
+    .fitur ul li:hover{
+        color: rgb(67, 171, 255);
+        text-shadow: 2px 2px rgb(187, 224, 255);
+    }
+}

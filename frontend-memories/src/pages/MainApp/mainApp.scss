@@ -1,0 +1,17 @@
+.main-app-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .header-wrapper{
+        -webkit-box-shadow: 0 10px 6px -6px rgb(221, 221, 221);
+        -moz-box-shadow: 0 10px 6px -6px rgb(221, 221, 221);
+             box-shadow: 0 10px 6px -6px rgb(221, 221, 221);
+    }
+    .content-wrapper{
+        flex: 1;
+        justify-content: center;
+        background-image: linear-gradient(to right top, #d8f5ff, #d4f1ff, #d0edff, #cde9ff, #cce5ff, #c9e5ff, #c6e4ff, #c3e4ff, #bee9ff, #b9edff, #b5f2ff, #b3f6ff);    }
+    .footer-wrapper{
+        margin: 0px;
+    }
+}
