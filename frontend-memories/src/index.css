@@ -17,6 +17,9 @@ body {
 input{
   font-family: Poppins-Regular;
 }
+textarea{
+  font-family: Poppins-Regular;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

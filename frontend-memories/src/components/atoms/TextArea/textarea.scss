@@ -1,0 +1,25 @@
+.text-area-wrapper{
+    margin: 15px 0;
+    .text-area-label{
+        font-size: 16px;
+        color: rgb(59, 59, 59);
+        margin-bottom: 6px;
+    }
+    .text-area{
+        padding: 12px;
+        font-size: 14px;
+        background-color: rgb(226, 226, 226);
+        color: rgb(14, 14, 14);
+        width: 100%;
+        min-height: 100px;
+        border-radius: 10px;
+        border: none;
+        box-sizing: border-box;
+    }
+    .text-area:focus{
+        background-color: rgb(206, 206, 206);
+        color: rgb(14, 14, 14);
+        outline: none;
+        box-shadow: 0 0 10px #9ecaed;
+    }
+}
