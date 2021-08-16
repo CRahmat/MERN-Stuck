@@ -9,7 +9,7 @@ body('content').isLength({min: 120}).withMessage('Data minimal 120 characters'),
 body('content').isLength({min: 1}).withMessage('Image must be uploaded')
 ],contentsController.createContent);
 
-router.get('/data', contentsController.getAllContents);
+router.get('/data/', contentsController.getAllContents);
 router.get('/data/:contentId', contentsController.getContentById);
 router.put('/data/:contentId',[
     body('title').isLength({min: 5}).withMessage('Data minimal 5 characters'), 

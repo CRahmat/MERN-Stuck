@@ -45,11 +45,24 @@ exports.createContent = (req, res, next) => {
 }
 
 exports.getAllContents = (req, res, next) => {
+    const currentPage = req.query.page || 1;
+    const perPage = req.query.perPage || 4;
+    let totalItems;
+
     ContentPost.find()
+    .countDocuments()
+    .then(count => {
+        totalItems = count;
+        return ContentPost.find()
+        .skip((parseInt(currentPage) - 1 ) * parseInt(perPage))
+        .limit(parseInt(perPage));
+    })
     .then(result => {
         res.status(200).json({
             message: "Successfully to get all data",
-            data: result
+            data: result,
+            total_data: parseInt(totalItems),
+            current_page: parseInt(currentPage)
         })
     })
     .catch( err => {
