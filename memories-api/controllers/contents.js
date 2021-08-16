@@ -1,9 +1,10 @@
 const {validationResult} = require('express-validator');
+const ContentPost = require('../models/content')
 
 exports.createContent = (req, res, next) => {
     const title = req.body.title;
     const content = req.body.content;
-    /*const image = req.body.image;*/
+    const image = req.body.image;
 
     const errors = validationResult(req);
     if(!errors.isEmpty()){
@@ -13,18 +14,23 @@ exports.createContent = (req, res, next) => {
         throw err;
     };
 
-    const result = {
-        message: 'Create Content Successfully',
-        data:{
-                id: 1,
-                title: title,
-                content: content, 
-                created_at:'15/08/2021 - 00.00', 
-                author: {
-                    uid: 1,
-                    fullName: "Catur Rahmat"
-                }
+    const PostContent = new ContentPost(
+        {
+            title: title,
+            content: content,
+            author: {uid:1, fullName: "Catur Rahmat"}
+        });
+    
+    PostContent.save().then(
+        result => {
+        const save = {
+            message: 'Create Content Successfully',
+            data: result
         }
-    }
-    res.status(201).json(result);
+        res.status(201).json(save);
+        }).catch(
+            err => {
+                console.log('err', err);
+            }
+        );
 }

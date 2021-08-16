@@ -23,7 +23,7 @@ app.use((error, req, res, next) => {
     res.status(status).json({message: errorMessage, data: data});
 });
 
-mongoose.connect("mongodb://catur:lDA1cBjfKrOMLEzd@clustermernblog-shard-00-00.7eara.mongodb.net:27017,clustermernblog-shard-00-01.7eara.mongodb.net:27017,clustermernblog-shard-00-02.7eara.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-wm0b6u-shard-0&authSource=admin&retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb://catur:lDA1cBjfKrOMLEzd@clustermernblog-shard-00-00.7eara.mongodb.net:27017,clustermernblog-shard-00-01.7eara.mongodb.net:27017,clustermernblog-shard-00-02.7eara.mongodb.net:27017/mern-blog?ssl=true&replicaSet=atlas-wm0b6u-shard-0&authSource=admin&retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
     app.listen(4000)
 })
