@@ -6,7 +6,7 @@ const Upload = ({label,previewTitle, ...rest}) => {
     return (
         <div className="upload-wrapper">
             <p className="input-label">{label}</p>
-            <input className="input-file" type="file" {...rest}/>
+            <input className="input-file" type="file" {...rest} method="post" enctype="multipart/form-data"/>
             <p className="input-label">{previewTitle}</p>
             <img className="preview-upload" src={Logo} alt="Mern Logo"/>
         </div>
