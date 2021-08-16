@@ -1,5 +1,7 @@
 const {validationResult} = require('express-validator');
-const ContentPost = require('../models/content')
+const ContentPost = require('../models/content');
+const path = require('path');
+const fs = require('fs');
 
 exports.createContent = (req, res, next) => {
     const errors = validationResult(req);
@@ -100,7 +102,7 @@ exports.updateContent = (req, res, next) => {
             err.status = 422;
             throw err;
         }
-
+        removeImage(post.image);
         post.title = title;
         post.content = content;
         post.image = image;
@@ -115,4 +117,34 @@ exports.updateContent = (req, res, next) => {
     }).catch(err => {
         next(err);
     })
+}
+
+exports.deleteContent = (req, res, next) => {
+    const contentId = req.params.contentId;
+
+    ContentPost.findById(contentId)
+    .then(result => {
+        if(!result){
+            const error = new Error('Data tidak ditemukan');
+            error.errorStatus = 404;
+            throw error;
+        }
+        removeImage(result.image);
+        return ContentPost.findByIdAndRemove(contentId);
+    })
+    .then(result => {
+        res.status(400).json({
+            message: "Delete Data Successfully",
+            filePath: result.image,
+            data: result
+        })
+    })
+    .catch(err => {
+        next(err);
+    })
+}
+
+const removeImage = (filePath) => {
+    filePath = path.join(__dirname, '../', filePath);
+    fs.unlink(filePath, err => console.log(err));
 }

@@ -16,5 +16,8 @@ router.put('/data/:contentId',[
     body('content').isLength({min: 120}).withMessage('Data minimal 120 characters'),
     body('content').isLength({min: 1}).withMessage('Image must be uploaded')
     ], contentsController.updateContent);
+router.delete('/data/:contentId', contentsController.deleteContent);
+
+
 
 module.exports = router;
