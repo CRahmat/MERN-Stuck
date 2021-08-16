@@ -1,11 +1,32 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const multer = require('multer');
+
+
 const app = express();
 const contentRouter = require('./routes/contents');
 const authRouter = require('./routes/auth');
 
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'images/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, new Date().getTime()+'-'+file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if(file.mimetype === 'image/png' || file.mimetype === 'image/jpg'|| file.mimetype === 'image/jpeg'){
+        cb(null, true);
+    }else{
+        cb(null, false);
+    }
+}
+
 app.use(bodyParser.json());
+app.use(multer({storage:fileStorage, fileFilter: fileFilter}).single('image'));
 
 /*Agar API dapat dihit dari URL manapun selain localhost*/
 app.use((req, res, next) => {
