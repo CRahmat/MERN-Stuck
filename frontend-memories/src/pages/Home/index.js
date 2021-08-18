@@ -3,9 +3,13 @@ import { BlogItem, Button, Gap } from '../../components'
 import './home.scss'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
     const [Contents, setContents] = useState([]);
+
+    const stateGlobal = useSelector(state => state);
+    console.log(stateGlobal);
     useEffect(() => {
         Axios.get('http://localhost:4000/v1/contents/data')
         .then(result => {
