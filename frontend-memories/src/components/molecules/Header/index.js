@@ -1,20 +1,23 @@
 import React from 'react'
-import { Logo } from '../../../assets'
 import './header.scss'
 import { useHistory } from 'react-router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
     const history = useHistory();
     return (
-        <div className="header">
-            <img className="brand-logo" src={Logo} alt="Mern Logo"/>
-            <div className="fitur">
-                <ul>
-                    <li onClick={() => history.push('./')}>Home</li>
-                    <li onClick={() => history.push('./login')}>Login</li>
-                </ul>
-            </div>
-        </div>
+        <header className="header">
+            <a href="#" className="logo"><span>Memories</span>App</a>
+            <input type="checkbox" id="menu-bar"/>
+            <label for="menu-bar"><FontAwesomeIcon icon={faBars} /></label>
+            <nav className="navbar">
+                <a href="" onClick={() => history.push('./')}>Home</a>
+                <a href="">Content</a>
+                <a href="">About</a>
+                <a href="" onClick={() => history.push('./login')}>Login</a>
+            </nav>
+        </header>
     )
 }
 

@@ -19,9 +19,8 @@ const Home = () => {
     const history = useHistory();
     return (
         <div className="home-wrapper">
-            <div className="create-wrapper">
-            <Button title="Buat Blog" onClick={() => history.push('./create')}/>
-            </div>
+                <div className="heading">My Memories</div>
+                <p className="heading-desc">These are some notes that you have created and saved on the system</p>
             <div className="content-wrapper">
                 {
                     Contents.map(content => {
@@ -33,7 +32,6 @@ const Home = () => {
                     })
                 }
             </div>
-            <hr />
             <div className="pagination">
                 <Button title="Prev"/>
                 <Gap width={10} />

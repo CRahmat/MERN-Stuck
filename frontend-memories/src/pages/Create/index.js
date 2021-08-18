@@ -7,8 +7,8 @@ function Create() {
     const history = useHistory();
     return (
         <div>
-           <h1 className="create-post">Create New Post</h1>
-           <p className="create-post-desc">Massukan data-data dibawah ini untuk membuat post baru</p>
+           <h1 className="heading">Create New Post</h1>
+           <p className="heading-desc">Massukan data-data dibawah ini untuk membuat post baru</p>
            <div  className="form-wrapper">
                 <Input label="Judul Post" placeholder="Massukan judul post..."/>
                 <TextArea label="Massukan Konten"/>

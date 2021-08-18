@@ -1,3 +1,38 @@
+:root{
+    --purple: #814069;
+    --pink: #f83292;
+    --gradient: linear-gradient(90deg, var(--purple), var(--pink));
+}
+*::selection{
+    background: var(--pink);
+    color: #fff;
+}
+section{
+    min-height: 100vh;
+    padding: 0 5%;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    background: #f9f9f9;
+}
+body::-webkit-scrollbar-track {
+    background-color: #ffbceb;
+}
+  body::-webkit-scrollbar {
+      width: 10px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-image: -webkit-gradient(linear,
+    left bottom,
+    left top,
+    color-stop(0.44, rgb(217, 122, 201)),
+    color-stop(0.72, rgb(189, 73, 164)),
+    color-stop(0.86, rgb(148, 28, 122)));  
+    border-radius: 5px;
+  }
 .main-app-wrapper{
     height: 100vh;
     display: flex;
@@ -12,8 +47,96 @@
         max-width: 1200px;
         margin: auto;
         width: 100%;
+        background: #fefefe;
     }
     .footer-wrapper{
         margin: 0px;
+    }
+}
+.heading{
+    text-align: center;
+    background: var(--gradient);
+    color: transparent;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    font-size: 5.5rem;
+    font-weight: 600;
+    padding: 1rem 0rem;
+}
+.heading-desc{
+    text-align: center;
+    font-size: 1.7rem;
+    color: #333;
+    padding: 1rem 0;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../../assets/images/home-bg-img.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.home .image-home img{
+    width: 40vw;
+    animation: float 6s infinite;
+}
+
+@keyframes float {
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+
+.home .content{
+    h3{
+    font-size: 5.5rem;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    span{
+        color: var(--pink);
+        text-transform: uppercase;
+    }
+    }
+    p{
+        font-size: 1.7rem;
+        color: #333;
+        padding: 1rem 0;
+    }
+    a{
+        text-decoration: none;
+    }
+}
+
+@media (max-width : 1200px) {
+    html{
+        font-size: 55%;
+    }
+}
+@media (max-width : 768px) {
+    .home{
+        flex-flow: column-reverse;
+    }
+    .home .content{
+        h3{
+        font-size: 3.5rem;
+        }
+        p{
+            font-size: 1rem;
+            color: #333;
+            padding: 1rem 0;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+}
+@media (max-width : 450px) {
+    html{
+        font-size: 50%;
     }
 }
